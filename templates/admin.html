@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="animate-fade">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 class="section-title" style="margin-bottom: 0;">Admin Dashboard</h2>
+        <a href="/" class="btn" style="background: rgba(255,255,255,0.1);">Back to Home</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;">
+        <div class="card" style="text-align: center;">
+            <p style="color: var(--text-muted);">Total Registrations</p>
+            <h3 style="font-size: 3rem;">{{ stats.total }}</h3>
+        </div>
+        <div class="card" style="text-align: center;">
+            <p style="color: var(--text-muted);">Accommodation Requests</p>
+            <h3 style="font-size: 3rem; color: var(--accent);">{{ stats.accommodation }}</h3>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="card" style="overflow-x: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>College</th>
+                    <th>Mobile</th>
+                    <th>Events</th>
+                    <th>Accom.</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td style="font-weight: bold;">{{ user.full_name }}</td>
+                    <td>{{ user.college_name }}<br><span style="font-size: 0.8rem; color: var(--text-muted);">{{
+                            user.dept_year }}</span></td>
+                    <td>{{ user.mobile }}</td>
+                    <td>{{ user.events }}</td>
+                    <td>
+                        {% if user.accommodation == 'Yes' %}
+                        <span style="color: #00ff88; font-weight: bold;">YES</span>
+                        {% else %}
+                        <span style="color: var(--text-muted);">No</span>
+                        {% endif %}
+                    </td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">{{ user.timestamp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

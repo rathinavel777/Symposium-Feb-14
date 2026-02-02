@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 4rem;">
+    <a href="/register" class="btn btn-primary" style="font-size: 1.5rem; padding: 1rem 3rem;">Register Now For Free</a>
+</div>
+
+<div class="grid">
+    <div>
+        <h2 class="section-title">🛠️ Technical Events</h2>
+        {% for event in tech_events %}
+        <div class="card" style="margin-bottom: 1rem;">
+            <h3>{{ event.name }}</h3>
+            <p style="color: var(--text-muted);">{{ event.desc }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        <h2 class="section-title">🎨 Non-Technical Events</h2>
+        {% for event in non_tech_events %}
+        <div class="card" style="margin-bottom: 1rem;">
+            <h3>{{ event.name }}</h3>
+            <p style="color: var(--text-muted);">{{ event.desc }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="card" style="text-align: center;">
+    <h2 class="section-title" style="border: none; display: inline-block;">🏠 Accommodation Rules</h2>
+    <p style="margin-bottom: 1rem;">Coming from outside? We've got you covered.</p>
+    <ul style="list-style: none; color: var(--text-muted); text-align: left; display: inline-block;">
+        <li>✅ <strong>Stay Fee:</strong> ₹300 (Payable at venue)</li>
+        <li>✅ <strong>Food:</strong> Night dinner provided FREE</li>
+        <li>✅ <strong>Allocation:</strong> Details shared in WhatsApp Group</li>
+    </ul>
+    <br><br>
+    <a href="/register" class="btn btn-primary">Proceed to Registration</a>
+</div>
+{% endblock %}

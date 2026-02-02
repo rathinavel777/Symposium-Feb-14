@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="success-container animate-fade">
+    <div class="success-icon">🎉</div>
+    <h2 class="text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;">Registration Successful!</h2>
+    <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+        Your entry pass has been generated. Please join the official WhatsApp group for crucial updates on room
+        allocation and event timings.
+    </p>
+
+    <!-- WhatsApp Link Placeholder - User should update this -->
+    <a href="https://chat.whatsapp.com/ReplaceWithActualLink" class="btn whatsapp-btn" target="_blank">
+        <span>Join WhatsApp Group</span>
+    </a>
+
+    <div style="margin-top: 3rem;">
+        <a href="/" style="color: var(--text-muted); text-decoration: none;">Return to Home</a>
+    </div>
+</div>
+{% endblock %}
